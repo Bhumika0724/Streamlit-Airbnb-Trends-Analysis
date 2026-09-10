@@ -50,6 +50,13 @@ def data_cleaning(df1):
         df1["price"],
         errors="coerce"
     )
+    
+    df1["room_type"] = (
+        df1["room_type"]
+        .astype(str)
+        .str.strip()
+        .str.title()
+    )
 
     # Convert last_review to datetime
     df1["last_review"] = pd.to_datetime(
